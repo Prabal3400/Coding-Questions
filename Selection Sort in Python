@@ -9,3 +9,5 @@ for i in range(0,len(arr)):
         arr[i]=arr[min]
         arr[min]=temp
 print(arr)
+# Consider min variable as index and not a variable
+# Swapping of element has to be done with the minimum element in the remaining list and not the next minimum
