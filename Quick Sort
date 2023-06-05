@@ -1,0 +1,38 @@
+def Partition(arr,lb,ub):
+    pivot=arr[lb]
+    start=lb
+    end=ub
+    while(start<=end):
+        if(arr[start]<=pivot):
+            start+=1
+        else:
+            if(arr[end]>pivot):
+                end-=1
+            else:
+                temp1=arr[start]
+                arr[start]=arr[end]
+                arr[end]=temp1
+                start+=1
+                end-=1
+    temp2=arr[lb]
+    arr[lb]=arr[end]
+    arr[end]=temp2
+    return end
+def Quick_Sort(arr,lb,ub):
+    if lb<ub:
+        #print(arr)
+        loc=Partition(arr,lb,ub)
+        #print(arr)
+        Quick_Sort(arr,lb,loc-1)
+        #print(arr)
+        Quick_Sort(arr,loc+1,ub)
+        #print(arr)
+    return arr
+if __name__ == "__main__":
+    arr=[7,6,10,5,9,2,1,15,7]
+    ans=[]
+    lb=0
+    ub=len(arr)-1
+    #print(ub)
+    ans=Quick_Sort(arr,lb,ub)
+    print(ans)
